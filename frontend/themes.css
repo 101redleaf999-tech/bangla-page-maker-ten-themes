@@ -1,0 +1,85 @@
+/* Bangla Page Maker — themes. Loaded after styles.css */
+[data-theme=light]{--bg:#f7f6f2;--surface:#fff;--ink:#222820;--muted:#858a80;--line:#e8e8e0;--green:#276749;--green2:#1e5139;--soft:#edf5ef;--field:#fcfcfa;--bar:rgba(255,255,255,.7);--bgimg:var(--bg)}
+[data-theme=dark]{--bg:#0e1117;--surface:#161b22;--ink:#e6edf3;--muted:#8b949e;--line:#262d36;--green:#2f9e6e;--green2:#27885c;--soft:#1b2b25;--field:#11161c;--bar:rgba(14,17,23,.7);--bgimg:radial-gradient(circle at 20% 0,#14202b,var(--bg) 60%)}
+[data-theme=midnight]{--bg:#070b1f;--surface:#10163a;--ink:#dfe6ff;--muted:#8e97c9;--line:#232c63;--green:#5a7bf0;--green2:#4a68d6;--soft:#1a2255;--field:#0c1130;--bar:rgba(7,11,31,.7);--bgimg:linear-gradient(#070b1f,#0d1445)}
+[data-theme=ocean]{--bg:#031c2c;--surface:#072b40;--ink:#e1f5ff;--muted:#86b6cc;--line:#0e4a68;--green:#1790ad;--green2:#127b94;--soft:#0b3a52;--field:#062638;--bar:rgba(3,28,44,.7);--bgimg:linear-gradient(#031c2c,#06405e)}
+[data-theme=sunset]{--bg:#2a1033;--surface:#3a1a3f;--ink:#ffe9d6;--muted:#d9a98f;--line:#6a3050;--green:#e0602a;--green2:#c9511f;--soft:#4a2043;--field:#2c1233;--bar:rgba(42,16,51,.7);--bgimg:linear-gradient(#2a1033,#6b2a52 60%,#b8483f)}
+[data-theme=forest]{--bg:#07140d;--surface:#0e2217;--ink:#e3f5e8;--muted:#8cb89b;--line:#1b4a31;--green:#2f9158;--green2:#27804d;--soft:#123424;--field:#0a1b12;--bar:rgba(7,20,13,.7);--bgimg:linear-gradient(#07140d,#0f2d1c)}
+[data-theme=gaming]{--bg:#050b1a;--surface:#0a1730;--ink:#dff0ff;--muted:#7ea4d6;--line:#14346b;--green:#1f6fe5;--green2:#1a5fc4;--soft:#0e2250;--field:#07122a;--bar:rgba(5,11,26,.7);--bgimg:var(--bg)}
+[data-theme=cosmic]{--bg:#070212;--surface:#1a1040;--ink:#efe6ff;--muted:#a998d6;--line:#35216e;--green:#8444e6;--green2:#7336cc;--soft:#271657;--field:#120a30;--bar:rgba(7,2,18,.7);--bgimg:radial-gradient(circle at 70% 10%,#2a1260,var(--bg) 65%)}
+[data-theme=red]{--bg:#1a0707;--surface:#2a0d0f;--ink:#ffe6e3;--muted:#d19a95;--line:#5a1b1f;--green:#d23a3a;--green2:#b92f2f;--soft:#3a1316;--field:#200a0c;--bar:rgba(26,7,7,.7);--bgimg:linear-gradient(#1a0707,#3b0d10)}
+[data-theme=earth]{--bg:#12160b;--surface:#1b2110;--ink:#eef2dd;--muted:#aab38a;--line:#3a4420;--green:#6f8f23;--green2:#5f7d1c;--soft:#2a3314;--field:#151a0c;--bar:rgba(18,22,11,.7);--bgimg:linear-gradient(#12160b,#232a12)}
+
+body{background:var(--bgimg);background-attachment:fixed;background-color:var(--bg);transition:background-color .4s,color .4s}
+.topbar,.shell{position:relative;z-index:1}
+.topbar{background:var(--bar);border-color:var(--line);backdrop-filter:blur(12px)}
+.panel{background:color-mix(in srgb,var(--surface) 90%,transparent);backdrop-filter:blur(10px)}
+.top-pill,.step,.upload-icon,.empty-icon,.success-icon,.preview-stage{background:var(--soft);border-color:var(--line);color:var(--green)}
+.top-pill{color:var(--muted)}
+textarea,.settings-grid select,.dropzone,.secondary-button,.stats div,.tip-card{background:var(--field);border-color:var(--line);color:var(--ink)}
+.secondary-button:hover{background:var(--soft)}
+textarea:focus,select:focus{border-color:var(--green);box-shadow:0 0 0 3px var(--soft)}
+.dropzone.dragover{background:var(--soft);border-color:var(--green)}
+.dropzone strong,.settings-grid label,.quality-row,.tip-card strong,.notice strong,.brand,.empty-result strong{color:var(--ink)}
+.intro p,.brand small,.muted,.text-meta,.settings-grid label span,.range-ends,.check-row,.privacy-note,.preview-foot,.preview-hint,.empty-result p,.progress-box p,.stats span,.dropzone small,footer,.tip-card p{color:var(--muted)}
+.notice{background:var(--soft);border-color:var(--line);color:var(--muted)}
+.progress-track{background:var(--soft)}
+.error-box{background:color-mix(in srgb,#e5484d 16%,var(--surface));border-color:color-mix(in srgb,#e5484d 40%,var(--surface));color:#ff9b96}
+.paper-lines{display:grid;flex:1;min-height:0}.paper-lines p{align-self:center;margin:0}
+
+.theme-dock{display:flex;gap:8px;align-items:center}
+.theme-dock button{width:22px;height:22px;padding:0;border-radius:50%;border:2px solid transparent;background:linear-gradient(135deg,var(--a),var(--b));transition:transform .2s,box-shadow .2s}
+.theme-dock button:hover{transform:scale(1.2)}
+.theme-dock button[aria-checked=true]{border-color:var(--ink);box-shadow:0 0 0 2px var(--bg)}
+@media(max-width:850px){.topbar{height:auto;min-height:66px;flex-wrap:wrap;padding:10px 16px;gap:8px}.theme-dock{order:3;width:100%;overflow-x:auto;padding:4px 2px}}
+
+/* ---- animated scene (starts on load, loops forever) ---- */
+.scene{position:fixed;inset:0;z-index:0;overflow:hidden;pointer-events:none}
+.scene::before,.scene::after{content:"";position:absolute;display:none}
+.scene i{position:absolute;left:var(--x);top:0;width:calc(var(--w,8px)*var(--z));height:calc(var(--h,var(--w,8px))*var(--z));background:var(--p,transparent);border-radius:var(--r,50%);box-shadow:var(--sh,none);filter:var(--f,none);opacity:0;animation:var(--an,none) var(--t,14s) linear var(--d) infinite}
+@keyframes rise{0%{transform:translateY(105vh);opacity:0}10%,90%{opacity:var(--o,.6)}100%{transform:translate(30px,-10vh);opacity:0}}
+@keyframes fall{0%{transform:translate(0,-10vh) rotate(0);opacity:0}10%,90%{opacity:var(--o,.7)}50%{margin-left:40px}100%{transform:translate(60px,110vh) rotate(360deg);opacity:0}}
+@keyframes twinkle{0%,100%{transform:translateY(var(--yv)) scale(.5);opacity:.1}50%{transform:translateY(var(--yv)) scale(1.2);opacity:var(--o,1)}}
+@keyframes shoot{0%{transform:translate(0,var(--yv)) rotate(-35deg);opacity:0}4%{opacity:1}22%,100%{transform:translate(-70vw,calc(var(--yv) + 45vh)) rotate(-35deg);opacity:0}}
+@keyframes drift{0%{transform:translate(-20vw,var(--yv))}100%{transform:translate(110vw,calc(var(--yv) - 8vh))}}
+@keyframes flow{to{background-position:var(--bs,50px) 0}}
+@keyframes sway{to{transform:skewX(-2deg) translateX(8px)}}
+@keyframes pulse{50%{transform:scale(1.12);opacity:.75}}
+@keyframes grid{to{background-position:0 50px,0 0}}
+@keyframes bob{50%{transform:translateY(-18px) rotate(4deg)}}
+
+/* light & dark */
+[data-theme=light] .scene{--p:rgba(39,103,73,.16);--an:rise;--w:14px;--t:18s}
+[data-theme=dark] .scene{--p:#7ee2b8;--an:twinkle;--w:3px;--t:5s;--sh:0 0 8px #7ee2b8;--o:.8}
+/* midnight: stars, shooting stars, crescent moon */
+[data-theme=midnight] .scene{--p:#fff;--an:twinkle;--w:3px;--t:4s;--sh:0 0 6px #fff}
+[data-theme=midnight] .scene i:nth-child(5n){--w:110px;--h:2px;--r:2px;--p:linear-gradient(90deg,#fff,transparent);--an:shoot;--t:9s}
+[data-theme=midnight] .scene::before{display:block;top:9%;right:10%;width:60px;height:60px;border-radius:50%;box-shadow:inset -16px -6px 0 0 #dfe6ff,0 0 40px rgba(223,230,255,.35);animation:bob 8s ease-in-out infinite}
+/* ocean: bubbles + moving waves */
+[data-theme=ocean] .scene{--p:transparent;--sh:inset 0 0 0 1.5px rgba(160,230,255,.6);--an:rise;--w:16px;--t:13s}
+[data-theme=ocean] .scene::after{display:block;left:0;right:0;bottom:0;height:60px;background:radial-gradient(circle at 25px 0,transparent 24px,rgba(30,167,201,.3) 25px) 0 0/50px 60px repeat-x;animation:flow 5s linear infinite}
+/* sunset: pulsing sun, drifting clouds, warm sparks */
+[data-theme=sunset] .scene{--p:#ffc27a;--an:rise;--w:5px;--t:16s;--sh:0 0 8px #ffb15c}
+[data-theme=sunset] .scene i:nth-child(3n){--w:110px;--h:20px;--r:20px;--p:rgba(255,220,190,.16);--sh:none;--an:drift;--t:60s;--f:blur(3px)}
+[data-theme=sunset] .scene::before{display:block;left:50%;bottom:-170px;width:340px;height:340px;margin-left:-170px;border-radius:50%;background:radial-gradient(circle,#ffd27a,#ff8a3d 55%,transparent 70%);animation:pulse 6s ease-in-out infinite}
+/* forest: falling leaves, swaying pines, flowing river */
+[data-theme=forest] .scene{--p:#6fd48f;--r:0 100% 0 100%;--w:13px;--h:19px;--an:fall;--t:15s}
+[data-theme=forest] .scene i:nth-child(2n){--p:#a3d86a}
+[data-theme=forest] .scene::before{display:block;left:-2%;right:-2%;bottom:46px;height:170px;background:#0b2a18;clip-path:polygon(0 100%,0 70%,6% 20%,12% 70%,18% 40%,25% 75%,31% 15%,38% 75%,44% 45%,50% 70%,56% 25%,63% 72%,69% 35%,75% 75%,82% 18%,88% 70%,94% 40%,100% 70%,100% 100%);animation:sway 7s ease-in-out infinite alternate}
+[data-theme=forest] .scene::after{display:block;left:0;right:0;bottom:0;height:56px;background:linear-gradient(90deg,#1d6f8f88,#4ab8d9aa,#1d6f8f88) 0 0/300px 100%;--bs:300px;animation:flow 6s linear infinite}
+/* gaming blue: neon moving grid + floating squares */
+[data-theme=gaming] .scene{--p:#3da0ff;--r:2px;--w:7px;--an:rise;--t:12s;--sh:0 0 10px #3da0ff}
+[data-theme=gaming] .scene::before{display:block;left:-50%;right:-50%;bottom:0;height:55vh;background:linear-gradient(rgba(31,123,255,.4) 1px,transparent 1px) 0 0/100% 50px,linear-gradient(90deg,rgba(31,123,255,.4) 1px,transparent 1px) 0 0/50px 100%;transform:perspective(300px) rotateX(60deg);transform-origin:bottom;animation:grid 2s linear infinite;-webkit-mask-image:linear-gradient(transparent,#000);mask-image:linear-gradient(transparent,#000)}
+/* cosmic purple: stars, comets, planet, moon */
+[data-theme=cosmic] .scene{--p:#e6d4ff;--an:twinkle;--w:3px;--t:4s;--sh:0 0 7px #c9a2ff}
+[data-theme=cosmic] .scene i:nth-child(6n){--w:130px;--h:2px;--r:2px;--p:linear-gradient(90deg,#d9b8ff,transparent);--an:shoot;--t:10s}
+[data-theme=cosmic] .scene::before{display:block;top:12%;right:8%;width:130px;height:130px;border-radius:50%;background:radial-gradient(circle at 30% 30%,#d3b0ff,#6a35c9 55%,#2a1160);box-shadow:0 0 50px rgba(155,92,255,.45);animation:bob 9s ease-in-out infinite}
+[data-theme=cosmic] .scene::after{display:block;top:62%;left:7%;width:38px;height:38px;border-radius:50%;background:radial-gradient(circle at 30% 30%,#fff,#b9a5e8 60%,#5b4a8f);animation:bob 6s ease-in-out infinite reverse}
+/* natural red: falling petals + warm glow */
+[data-theme=red] .scene{--p:#ff6b6b;--r:100% 0 100% 0;--w:12px;--h:16px;--an:fall;--t:14s}
+[data-theme=red] .scene i:nth-child(3n){--p:#ffb3a7}
+[data-theme=red] .scene::before{display:block;left:-120px;bottom:-120px;width:420px;height:420px;border-radius:50%;background:radial-gradient(circle,rgba(224,72,72,.35),transparent 70%);animation:pulse 7s ease-in-out infinite}
+/* earth green: drifting soft blobs, rising spores, rolling hills */
+[data-theme=earth] .scene{--p:rgba(160,190,70,.5);--an:rise;--w:5px;--t:20s}
+[data-theme=earth] .scene i:nth-child(4n){--w:200px;--p:rgba(111,143,35,.3);--f:blur(30px);--an:drift;--t:50s}
+[data-theme=earth] .scene::before{display:block;left:0;right:0;bottom:0;height:120px;background:radial-gradient(ellipse at 50% 100%,#2f3a16 58%,transparent 59%) 0 0/420px 120px repeat-x;--bs:420px;animation:flow 40s linear infinite}
