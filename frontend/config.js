@@ -1,3 +1,3 @@
 window.BPM_CONFIG = {
-  API_BASE_URL: "https://bangla-page-maker-ten-themes.onrender.com/"
+  API_BASE_URL: "https://bangla-page-maker-ten-themes.onrender.com"
 };
